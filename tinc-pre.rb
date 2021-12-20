@@ -13,11 +13,10 @@ class TincPre < Formula
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
-    subrun = "#{prefix}/var/run"
-    sublog = "#{prefix}/var/log"
     
-    subrun.mkpath
-    sublog.mkpath
+    var.mkpath
+    mkdir_p var/"run"
+    mkdir_p var/"log"
   end
 
   test do
