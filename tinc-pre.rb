@@ -1,4 +1,4 @@
-class Tinc-Pre < Formula
+class TincPre < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
   url "https://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz"
