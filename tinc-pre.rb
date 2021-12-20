@@ -13,7 +13,7 @@ class TincPre < Formula
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}"
    
-    var.mkpath
+    mkdir_p var
     mkdir_p var/"run"
     mkdir_p var/"log"
     
