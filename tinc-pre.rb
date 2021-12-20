@@ -12,11 +12,12 @@ class TincPre < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}"
-    system "make", "install"
-    
+   
     var.mkpath
     mkdir_p var/"run"
     mkdir_p var/"log"
+    
+    system "make", "install"
   end
 
   test do
