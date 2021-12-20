@@ -1,4 +1,4 @@
-class Tinc < Formula
+class Tinc-Pre < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
   url "https://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz"
@@ -6,11 +6,15 @@ class Tinc < Formula
 
   depends_on "lzo"
   depends_on "openssl"
+  
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
+    system "mkdir", "-p", "#{prefix}/var/run"
+    system "mkdir", "-p", "#{prefix}/var/log"
   end
 
   test do
